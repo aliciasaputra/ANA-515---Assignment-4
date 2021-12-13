@@ -1,0 +1,95 @@
+---
+title: "ANA 515 - Assignment 4"
+author: alicia saputra
+date: 2021
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Business problem / goal of the project
+
+#In this project, our goal is to do a customer segmentation based on visitors of the mall
+#We will segment the customer by age, gender, and interest
+
+#This is especially important on businesses since each customer has different requirement
+#Thus it will require specific marketing effort in order to put the necessary marketing effort
+```
+
+```{r}
+#Calling my library
+library (tidyverse)
+library (dplyr)
+library (readr)
+library (ggplot2)
+```
+
+```{r}
+#Importing my data from csv
+
+mydata <- read_csv("downloads/Mall_Customers.csv")
+
+spec (mydata) #identify my data
+
+```
+
+```{r}
+#Describe my dataset
+
+head (mydata) #read rows of my dataset
+ncol (mydata) #read columns on my dataset
+summary (mydata) #to get summary statistics of my dataset
+
+```
+
+```{r}
+#data preparation
+
+#Checking for missing values 
+
+Genre <- c("Male", "Female", NA)
+Age <- c(19, 21, NA)
+Spending <- c(39, 81, NA)
+Income <- c (15,16, NA)
+df <- data.frame(Genre, Age, Spending, Income)
+
+head (df)
+
+#As we can see from the result, there is no missing values
+#In this case, listwise deletion method was already performed
+#The na.omit() function will remove all cases /rows that contains any NA
+```
+
+```{r}
+#data preparation
+
+#However, I want to rename some column
+
+mydata <- rename(mydata, c("Gender"="Genre"))
+
+head (mydata)
+
+```
+
+```{r}
+#data modelling
+
+ggplot(data = mydata, aes(x=as.character(Gender), y=Age)) +
+    geom_boxplot(fill=c('steelblue'))
+
+#As we can see from the visualization below, the customer who visit the mall are
+#Female with the median age of 35
+#Male with the median age of 36 - 38
+
+#There are actually more female in their mid 30s and late 40s and 
+#Male between in their mid 30s and early 50s who visit the mall
+
+```
+
+
+
+
+
