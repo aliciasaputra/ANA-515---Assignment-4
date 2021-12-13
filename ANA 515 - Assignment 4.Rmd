@@ -84,8 +84,8 @@ ggplot(data = mydata, aes(x=as.character(Gender), y=Age)) +
 #Female with the median age of 35
 #Male with the median age of 36 - 38
 
-#There are actually more female in their mid 30s and late 40s and 
-#Male between in their mid 30s and early 50s who visit the mall
+#There are actually more female in their early 30s and late 40s and 
+#Male between in their late 20s and early 50s who visit the mall
 
 ```
 
